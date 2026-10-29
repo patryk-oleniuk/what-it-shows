@@ -19,10 +19,12 @@ signature: "v1.eyJzdWIiOiIxMDcwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpY
 #4471 merged every date report into one known issue. The cause code does not. A report's cause comes from the tenant's locale and booking form, not from the subject line intake merged on.
 
 <Callout kind="warn">
-Two causes were filed on one ticket. The table marks the one that has no ticket of its own.
+Two causes were filed on #4471. The table marks the one that ticket does not own.
 </Callout>
 
 <CauseTable ticket={4471} />
+
+Filed as [parser](https://github.com/patryk-oleniuk/what-it-shows/issues/1) and [hint](https://github.com/patryk-oleniuk/what-it-shows/issues/2). The count on each ticket is the count in the table.
 
 `parser` is the shared parser. It reads every date month first, so a day-first tenant's dates come out flipped. `hint` is the other bug: booking-v3 prints `MM/DD/YYYY` under the field, and the form then reads that field the tenant's way, day first. Reports the desk read as a one-day move stay in the cause the tenant rule filed them under. The table footnotes those.
 
