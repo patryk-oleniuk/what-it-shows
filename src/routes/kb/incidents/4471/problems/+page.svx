@@ -1,0 +1,29 @@
+---
+layout: runbook
+title: '#4471 is two problems'
+owner: patryk
+status: open
+reviewed: 2026-10-28
+signature: "v1.eyJzdWIiOiIxMDcwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMzEzMjksImV4cCI6MTc5MzMxNzcyOX0.ysH2mSqiqeINooiRt3cTAf1_9tElu-nsd_zmvUZM3x4"
+---
+
+<script>
+  import Callout from '#lib/kb/Callout.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const signature =
+    'v1.eyJzdWIiOiIxMDcwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMzEzMjksImV4cCI6MTc5MzMxNzcyOX0.ysH2mSqiqeINooiRt3cTAf1_9tElu-nsd_zmvUZM3x4';
+</script>
+
+#4471 merged every date report into one known issue. The cause code does not. A report's cause comes from the tenant's locale and booking form, not from the subject line intake merged on.
+
+<Callout kind="warn">
+Two causes were filed on one ticket. The table marks the one that has no ticket of its own.
+</Callout>
+
+<CauseTable ticket={4471} />
+
+`parser` is the shared parser. It reads every date month first, so a day-first tenant's dates come out flipped. `hint` is the other bug: booking-v3 prints `MM/DD/YYYY` under the field, and the form then reads that field the tenant's way, day first. Reports the desk read as a one-day move stay in the cause the tenant rule filed them under. The table footnotes those.
+
+<RenderStamp {signature} />
