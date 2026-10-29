@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 is two problems'
 owner: patryk
-status: open
+status: closed
 reviewed: 2026-10-28
 signature: "v1.eyJzdWIiOiIxMDcwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMzEzMjksImV4cCI6MTc5MzMxNzcyOX0.ysH2mSqiqeINooiRt3cTAf1_9tElu-nsd_zmvUZM3x4"
 ---
@@ -25,6 +25,13 @@ Two causes were filed on #4471. The table marks the one that ticket does not own
 <CauseTable ticket={4471} />
 
 Filed as [parser](https://github.com/patryk-oleniuk/what-it-shows/issues/1) and [hint](https://github.com/patryk-oleniuk/what-it-shows/issues/2). The count on each ticket is the count in the table.
+
+## Engineering update
+
+#4471 closed 05 Oct.
+
+- `parser` is fixed: `fix(dates): parse dd/mm for eu locales`
+- `hint` will not be fixed: booking-v3 form retired
 
 `parser` is the shared parser. It reads every date month first, so a day-first tenant's dates come out flipped. `hint` is the other bug: booking-v3 prints `MM/DD/YYYY` under the field, and the form then reads that field the tenant's way, day first. Reports the desk read as a one-day move stay in the cause the tenant rule filed them under. The table footnotes those.
 
